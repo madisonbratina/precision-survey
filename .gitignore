@@ -1,0 +1,31 @@
+# Node.js
+node_modules/
+
+# Next.js build output
+.next/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+logs/
+*.log
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled output
+dist/
+out/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
