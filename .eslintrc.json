@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended",
+    "prettier",
+    "eslint-config-prettier"
+  ],
+  "rules": {
+    "no-console": "error",
+    "prettier/prettier": "error",
+    "react/prop-types": 0,
+    "linebreak-style": ["error", "unix"],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "react/no-unescaped-entities": 0,
+    "@next/next/no-img-element": "off"
+  }
+}
