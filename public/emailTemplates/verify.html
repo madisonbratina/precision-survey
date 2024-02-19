@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .main-container {
+        min-height: 100%;
+        min-width: 100%;
+      }
+      .primary-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #297afc;
+        color: white;
+        width: 80px;
+        height: 42px;
+        font-weight: 700;
+        font-size: x-large;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 18.15px, 31.11px, 18.15px, 31.11px;
+        border-radius: 129.62px;
+      }
+      .logo-img {
+        margin-left: 10px;
+      }
+      .header-bg {
+        background: linear-gradient(109.04deg, #001044 5.66%, #297afc 119.79%);
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+      }
+      .header-text {
+        font-weight: 700;
+        color: #001044;
+        size: 25.92px;
+      }
+      .header-text-container{
+        width: 325.77px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+      }
+      .section-text {
+        font-weight: 400;
+        color: #001044;
+        size: 15.12px;
+      }
+      .section-container {
+        width: 325.77px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+      }
+      .footer-text {
+        font-weight: 400;
+        color: rgba(41, 122, 252, 0.5);;
+        font-size: 10px;
+      }
+      .footer-container {
+        width: 325.77px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container{
+        background: #e8f1fc;
+        min-height: 440px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .btn-container {
+        height: 80.9px;
+        width: 142.77px;
+        gap: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .divider{
+        width: 300px;
+      }
+      .center-img{
+        display: flex;
+        justify-content: center;
+      }
+      @media only screen and (max-width: 600px) {
+    .primary-button {
+        width: 180px;
+        height: 42px;
+        font-weight: 700;
+        font-size: x-large;
+        text-decoration: none;
+        border-radius: 5px;
+        background-color: #297afc;
+        padding: 18.15px, 31.11px, 18.15px, 31.11px;
+        border-radius: 129.62px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header-bg">
+        <img
+          src="/public/images/logo.png"
+          alt="precision-light.png"
+          width="120"
+          height="30"
+          class="logo-img"
+        />
+      </div>
+      <div class="container">
+        <div>
+          <div class="center-img">
+            <img
+              src="/public/images/Shield-check.png"
+              alt="shield-check.png"
+              width="20"
+              height="20"
+              
+            />
+          </div>
+          <div class="header-text-container">
+            <span class="header-text"> Please verify your Precision survey </span>
+          </div>
+          <div class="section-container">
+            <span class="section-text"
+              >Verify now to get started in your Precision survey by clicking below.</span
+            >
+          </div>
+        </div>
+        <div class="btn-container">
+            <a class="primary-button" href="${verificationLink}"><span>Verify Now</span> </a>
+          </div>
+        <div>
+            <hr class="divider"></hr>
+        </div>
+        <div class="footer-container">
+            <span class="footer-text"
+              >You've received this email because you registered for the Precision Survey by Precision. Please refer to the Precision's Terms and Conditions for details.</span
+            >
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
