@@ -23,10 +23,10 @@ export const userEmailVerificationMail = async (email: string, token: string) =>
   }
 };
 
-export const couponAlertMail = async (availableCount: any) => {
+export const couponAlertMail = async (providerName: any) => {
   try {
-    const subject = `Low Coupon Inventory Alert`;
-    const content = couponAlertTemplate(availableCount);
+    const subject = `Low ${providerName}'s Coupon Inventory Alert`;
+    const content = couponAlertTemplate(providerName);
 
     await sentMail(adminEmail, subject, content);
   } catch (error: any) {
