@@ -59,7 +59,8 @@ export async function PATCH(req: NextRequest) {
         }
       }
     );
-    return NextResponse.json({ message: 'Data updated', status: 200 });
+    const count = await Coupon.countDocuments({ userId: { $exists: false } });
+    return NextResponse.json({ message: 'Data updated', data: count, status: 200 });
   } catch (e) {
     return NextResponse.json(e, { status: 500 });
   }

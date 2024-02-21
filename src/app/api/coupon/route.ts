@@ -9,8 +9,22 @@ const couponThreshold = process.env.NEXT_PUBLIC_COUPON_THRESHOLD || '';
 export async function GET() {
   try {
     await dbConnect();
+
+    const availableCount = await Coupon.countDocuments({
+      userId: { $exists: false }
+    });
+
     const response = await Coupon.find();
-    return NextResponse.json({ data: response }, { status: 200 });
+
+    const responseData = {
+      data: {
+        coupons: response,
+        availableCount: availableCount
+      },
+      status: 200
+    };
+
+    return NextResponse.json(responseData);
   } catch (e) {
     return NextResponse.json(e, { status: 500 });
   }

@@ -25,6 +25,9 @@ export async function middleware(request: NextRequest) {
     }
     // const decodedToken = decodeURIComponent(token);
     const decodedToken = token;
+
+    let couponData = await (await fetch(`${process.env.NEXT_PUBLIC_API_URL}coupon`)).json();
+
     let data = await (
       await fetch(`${process.env.NEXT_PUBLIC_API_URL}user?token=${decodedToken}`)
     ).json();
@@ -49,12 +52,19 @@ export async function middleware(request: NextRequest) {
         new URL(`/survey/coupon/${existingCoupon}?token=${decodedToken}`, request.url)
       );
     }
+
     if (request.nextUrl.pathname.includes('coupon') && actualStep === 6) {
       return response;
     }
+
     if (actualStep === 6) {
+      if (couponData.data.availableCount <= 0) {
+        return;
+      }
+
       return NextResponse.redirect(new URL(`/survey/coupon?token=${decodedToken}`, request.url));
     }
+
     // @ts-ignore
     if (step && !isNaN(step)) {
       if (actualStep === +step) {
@@ -78,6 +88,7 @@ export async function middleware(request: NextRequest) {
 
   return response;
 }
+
 export const config = {
   matcher: [
     '/survey',

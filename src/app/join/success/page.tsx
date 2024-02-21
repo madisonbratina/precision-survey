@@ -7,7 +7,7 @@ export default function Page() {
       <WelcomeCard subTitle='Check your email'>
         <div>
           <div className='flex justify-center'>
-            <Image src='/images/email-sent.png' alt='email' height={100} width={100} />
+            <Image src='/images/envelope.png' alt='email' height={100} width={100} />
           </div>
           <p className='text-center text-white mt-6'>
             Check your email to verify your email address and access your account.
