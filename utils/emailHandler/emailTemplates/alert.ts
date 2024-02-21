@@ -29,10 +29,10 @@ export const couponAlertTemplate = (availableCount: string) => `
                     <div style="text-align: center;">
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">
-                      <h2 style="color: #001044; font-size: 24px; font-weight: 700; margin: 0;">The remaining available coupons are ${availableCount}.</h2>
+                      <h2 style="color: #ff0f0f; font-size: 20px; font-weight: 600; margin: 0;"> Action Needed</h2>
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">
-                      <p style="color: #001044; font-size: 14px; font-weight: 400; margin: 0;">.</p>
+                      <p style="color: #001044; font-size: 14px; font-weight: 400; margin: 0;">We've noticed a significant drop in available coupons on our platform. To ensure user satisfaction, please promptly review and replenish our stock to ensure an adequate supply of coupons available for users..</p>
                     </div>
                   </td>
                 </tr>

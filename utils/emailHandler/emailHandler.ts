@@ -25,7 +25,7 @@ export const userEmailVerificationMail = async (email: string, token: string) =>
 
 export const couponAlertMail = async (availableCount: any) => {
   try {
-    const subject = `Alert`;
+    const subject = `Low Coupon Inventory Alert`;
     const content = couponAlertTemplate(availableCount);
 
     await sentMail(adminEmail, subject, content);
