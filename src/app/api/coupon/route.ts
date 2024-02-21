@@ -75,14 +75,35 @@ export async function PATCH(req: NextRequest) {
         }
       );
     }
-    const availableCount = await Coupon.countDocuments({
-      userId: { $exists: false }
+    const getCount = async () => {
+      try {
+        const result = await Coupon.aggregate([
+          {
+            $match: {
+              userId: null
+            }
+          },
+          {
+            $group: {
+              _id: '$provider',
+              count: { $sum: 1 }
+            }
+          }
+        ]);
+
+        return result;
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error:', error);
+        throw error;
+      }
+    };
+    const res = await getCount();
+    res.map(async (entry, index) => {
+      if (Number(entry.count) <= Number(couponThreshold)) {
+        await couponAlertMail(entry._id);
+      }
     });
-
-    if (Number(availableCount) < Number(couponThreshold)) {
-      await couponAlertMail(availableCount);
-    }
-
     return NextResponse.json({ data: coupon, status: 200 });
   } catch (e) {
     return NextResponse.json(e, { status: 500 });

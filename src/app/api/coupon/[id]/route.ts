@@ -26,10 +26,36 @@ export async function PATCH(req: NextRequest) {
   try {
     await dbConnect();
     const data = await req.json();
-    const updatedCoupon = await Coupon.findOneAndUpdate({ _id: id }, data);
-    if (Number(updatedCoupon.availableCount) < Number(couponThreshold)) {
-      await couponAlertMail(updatedCoupon.email);
-    }
+    const getCount = async () => {
+      try {
+        const result = await Coupon.aggregate([
+          {
+            $match: {
+              userId: null
+            }
+          },
+          {
+            $group: {
+              _id: '$provider',
+              count: { $sum: 1 }
+            }
+          }
+        ]);
+
+        return result;
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error:', error);
+        throw error;
+      }
+    };
+    const res = await getCount();
+    res.map(async (entry, index) => {
+      if (Number(entry.count) <= Number(couponThreshold)) {
+        await couponAlertMail(entry._id);
+      }
+    });
+
     return NextResponse.json({ message: 'Data updated', status: 200 });
   } catch (e) {
     return NextResponse.json(e, { status: 500 });

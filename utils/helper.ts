@@ -1,7 +1,4 @@
 import jwt from 'jsonwebtoken';
-import dbConnect from '~/db/db';
-import Coupon from '~/models/coupon';
-const couponThreshold = process.env.NEXT_PUBLIC_COUPON_THRESHOLD || '';
 // import CryptoJS from 'crypto-js';
 import fs from 'fs';
 import path from 'path';
@@ -9,19 +6,6 @@ import bcrypt from 'bcryptjs';
 import { NextResponse } from 'next/server';
 import Admin from '~/models/admin';
 import { cookies } from 'next/headers';
-
-const key = process.env.NEXT_PUBLIC_SECRET_KEY || '';
-
-export const sentAlert = async (id: string) => {
-  try {
-    await dbConnect();
-    const response = await Coupon.findById({ _id: id });
-    if (Number(response && response.availableCount) < Number(couponThreshold)) {
-    }
-  } catch (error) {
-    return error;
-  }
-};
 
 // export const encryptText = (text: string) => {
 //   return CryptoJS.AES.encrypt(text, key).toString();
