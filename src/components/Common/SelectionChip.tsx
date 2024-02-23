@@ -2,8 +2,7 @@ import { truncateString } from '@/utils/types/helpers';
 import { SelectionChipPropType } from '@/utils/types/types';
 import React from 'react';
 
-const SelectionChip = ({ children, isActive,handler}: SelectionChipPropType) => {
-
+const SelectionChip = ({ children, isActive, handler }: SelectionChipPropType) => {
   const handleClick = () => {
     if (handler) {
       handler();
@@ -12,7 +11,7 @@ const SelectionChip = ({ children, isActive,handler}: SelectionChipPropType) => 
 
   return (
     <div
-    onClick={handleClick}
+      onClick={handleClick}
       className={`text-sm px-5 py-1 border-2 rounded-full ${
         isActive ? 'bg-blue5 text-white border-blue5' : 'border-blue4 text-blue4'
       }`}

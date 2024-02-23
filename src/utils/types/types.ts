@@ -6,7 +6,7 @@ export type SelectOptionPropType = {
 };
 
 export type SelectionChipPropType = {
-  children: React.ReactNode;
+  children: string;
   isActive: boolean;
   handler?: () => void;
 };
