@@ -1,13 +1,14 @@
 export type SelectOptionPropType = {
   children: string;
-  isActive?: boolean;
+  isActive?: any;
   serialNumber: number;
   handler: () => void;
 };
 
 export type SelectionChipPropType = {
   children: string;
-  isActive?: boolean;
+  isActive: boolean;
+  handler?: () => void;
 };
 
 export type formQuestionOptionsType = {
