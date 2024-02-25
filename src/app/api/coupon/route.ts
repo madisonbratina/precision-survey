@@ -41,6 +41,24 @@ export async function POST(req: NextRequest) {
   }
 }
 
+export async function PUT(req: NextRequest, res: NextResponse) {
+  try {
+    const { csvData } = await req.json();
+
+    if (!Array.isArray(csvData)) {
+      return NextResponse.json({ error: 'Invalid CSV data: Expected an array' }, { status: 400 });
+    }
+    const coupons = csvData.map((item) => ({
+      code: item.Code,
+      provider: item.Provider
+    }));
+    const data = await Coupon.insertMany(coupons);
+    return NextResponse.json({ success: true }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
+}
+
 export async function PATCH(req: NextRequest) {
   try {
     const id = req.cookies.get('userId');

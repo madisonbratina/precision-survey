@@ -11,9 +11,9 @@
   ],
   "rules": {
     "no-console": "error",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error",  {"endOfLine": "auto"}],
     "react/prop-types": 0,
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": 0,
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
     "react/no-unescaped-entities": 0,
