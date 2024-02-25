@@ -50,7 +50,7 @@ export async function PUT(req: NextRequest, res: NextResponse) {
     }
     const coupons = csvData.map((item) => ({
       code: item.Code,
-      provider: item.Provider 
+      provider: item.Provider
     }));
     const data = await Coupon.insertMany(coupons);
     return NextResponse.json({ success: true }, { status: 200 });
