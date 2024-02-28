@@ -5,6 +5,10 @@ const useTnc = () => {
   const [isFirstSelected, setIsFirstSelected] = useState(false);
   const [isSecondSelected, setIsSecondSelected] = useState(false);
 
+  const handleDownload = () => {
+    const pdfUrl = '/pdf/Privacy Policy.pdf';
+    window.open(pdfUrl, '_blank');
+  };
   return {
     TncComponent: (
       <div>
@@ -15,28 +19,16 @@ const useTnc = () => {
             onClick={(e: any) => setIsFirstSelected(e.target.checked)}
           />{' '}
           <p className='text-xs'>
-            By clicking continue, I agree to the{' '}
-            <Link style={{ color: 'blue' }} href='/privacy-policy'>
+            I have read and agree to the uses of my information by Precision Research in accordance
+            with its{' '}
+            <Link style={{ color: 'blue' }} onClick={handleDownload} href={''}>
               Privacy Policy
             </Link>{' '}
-            and{' '}
-            <Link style={{ color: 'blue' }} href='/terms-conditions'>
-              Terms of Use
-            </Link>{' '}
-            of Precision.
           </p>
-        </div>
-        <div className='flex items-center gap-6'>
-          <input
-            type='checkbox'
-            checked={isSecondSelected}
-            onClick={(e: any) => setIsSecondSelected(e.target.checked)}
-          />{' '}
-          <p className='text-xs'>I agree to receive marketing communication from SMO TEST.</p>
         </div>
       </div>
     ),
-    isAccepted: isFirstSelected && isSecondSelected
+    isAccepted: isFirstSelected
   };
 };
 

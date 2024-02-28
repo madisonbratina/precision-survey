@@ -10,8 +10,8 @@ const Result = ({ searchParams }: { searchParams: { token: string } }) => {
   return (
     <GradientCard
       image='/images/openbox.png'
-      title='How To Play'
-      subTitle='Complete the survey questions to earn a prize!'
+      title='Get Started'
+      subTitle='Complete the six survey questions (est time 2 min) to earn a $5 gift card of your choice.'
       css={true}
     >
       <div className='flex justify-center'>

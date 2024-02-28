@@ -26,7 +26,7 @@ const Result = ({ searchParams }: { searchParams: { token: string } }) => {
     <GradientCard
       image='/images/giftbox.png'
       title='Congrats!'
-      subTitle='Pick a prize from the options below...'
+      subTitle='Pick a gift card of your choice from the options below.'
       addHeight={true}
     >
       <div className='flex justify-center gap-10'>
@@ -40,12 +40,14 @@ const Result = ({ searchParams }: { searchParams: { token: string } }) => {
               handler={() => {}}
               textTransform='capitalize'
               As={Link}
+              fontSize={'14px'}
+              paddingX={'px-4'}
               addFlex={true}
               otherProps={{
                 href: `/survey/coupon/${coupon._id}?token=${token}`
               }}
             >
-              {coupon.provider}
+              {`${coupon.provider}$5`}
             </Button>
           );
         })}

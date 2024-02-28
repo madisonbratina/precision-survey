@@ -42,7 +42,7 @@ const Page = ({ login, isLoading }: any) => {
   return (
     <>
       {isLoading && <FullScreenLoader />}
-      <WelcomeCard subTitle='Earn a gift card of your choice by filling out a short survey.'>
+      <WelcomeCard subTitle='Earn a $5 Tim Horton’s or Amazon gift card by answering six short survey questions.'>
         <div className='flex flex-col items-center gap-4'>
           <LiginLink
             image='/images/email.png'
