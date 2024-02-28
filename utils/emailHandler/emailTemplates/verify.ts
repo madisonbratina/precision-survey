@@ -30,7 +30,7 @@ export const emailVerificationTemplate = (verificationLink: string) => `<html>
                       <img src="${process.env.NEXT_PUBLIC_APP_URL}images/Shield-check.png" alt="shield-check.png" width="20" height="20" style="margin-bottom: 20px;" />
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">
-                      <h2 style="color: #001044; font-size: 24px; font-weight: 700; margin: 0;">Please verify your Precision survey</h2>
+                      <h2 style="color: #001044; font-size: 24px; font-weight: 600; margin: 0;">Please verify your email for the Precision Survey</h2>
                     </div>
                     <div style="text-align: center; margin-bottom: 20px;">
                       <p style="color: #001044; font-size: 14px; font-weight: 400; margin: 0;">Verify now to get started in your Precision survey by clicking below.</p>

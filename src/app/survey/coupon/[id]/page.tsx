@@ -36,8 +36,8 @@ const Coupon = ({ params }: { params: { id: string } }) => {
   return (
     <GradientCard
       image={couponData?.image ? couponData?.image : '/images/noimage.jpg'}
-      title='Winner!'
-      subTitle='You’ve won! Use the prize code below at online checkout to redeem your prize.'
+      title='Congrats!'
+      subTitle={`You’ve earned a ${couponData?.provider} gift card! Use the URL below to redeem.`}
       enableImageBackground={true}
     >
       <div className='relative'>
