@@ -69,19 +69,19 @@ const formDataList: FormDataListType = [
     options: [
       {
         id: 'A',
-        text: 'A simple refresh of my space with (smaller) décor items'
+        text: 'Small Refresh'
       },
       {
         id: 'B',
-        text: 'Complete redesign of my space with (larger) feature items'
+        text: 'Complete Redesign'
       },
       {
         id: 'C',
-        text: 'Optimize what I have with smart accessories'
+        text: 'Optimize Exisiting'
       },
       {
         id: 'D',
-        text: 'Declutter and organize my space with storage'
+        text: 'Declutter'
       }
     ]
   },
