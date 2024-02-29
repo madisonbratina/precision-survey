@@ -36,7 +36,7 @@ const DashboardLayout = ({
 
   return (
     <div className='pb-5'>
-      <nav className='bg-white border-gray-200 dark:bg-blue7'>
+      <nav className='bg-blue-600 border-gray-200 dark:bg-blue7'>
         <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
           <Image src='/images/logo.png' alt='precision-light.png' width={130} height={49} />
           <div className='relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse'>

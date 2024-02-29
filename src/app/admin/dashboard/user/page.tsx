@@ -61,7 +61,7 @@ const User = () => {
           >
             <div className='flex justify-end'>
               <button
-                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                className='bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
                 onClick={() => {}}
               >
                 <CSVLink data={csvData} filename={'Users.csv'}>
@@ -70,7 +70,7 @@ const User = () => {
               </button>
             </div>
             <table className='w-full text-sm text-left rtl:text-right '>
-              <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-blue7 dark:text-gray-400'>
+              <thead className='text-xs text-white uppercase  dark:bg-blue7 dark:text-gray-400 bg-blue-500'>
                 <tr>
                   <th scope='col' className='px-6 py-3'>
                     Email

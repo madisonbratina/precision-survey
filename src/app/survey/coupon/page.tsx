@@ -40,7 +40,7 @@ const Result = ({ searchParams }: { searchParams: { token: string } }) => {
               handler={() => {}}
               textTransform='capitalize'
               As={Link}
-              fontSize={'14px'}
+              fontSize={'text-xs'}
               paddingX={'px-4'}
               addFlex={true}
               otherProps={{
