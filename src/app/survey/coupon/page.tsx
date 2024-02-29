@@ -47,7 +47,7 @@ const Result = ({ searchParams }: { searchParams: { token: string } }) => {
                 href: `/survey/coupon/${coupon._id}?token=${token}`
               }}
             >
-              {`${coupon.provider}$5`}
+              {`${coupon.provider} $5`}
             </Button>
           );
         })}

@@ -77,7 +77,7 @@ const formDataList: FormDataListType = [
       },
       {
         id: 'C',
-        text: 'Optimize Exisiting'
+        text: 'Optimize Existing'
       },
       {
         id: 'D',
