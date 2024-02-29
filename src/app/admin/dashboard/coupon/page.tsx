@@ -104,13 +104,13 @@ const Coupon = () => {
               />
               <label
                 htmlFor='csvFileInput'
-                className='cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                className='cursor-pointer bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
               >
                 Upload CSV
               </label>
 
               <button
-                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded '
+                className='bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded '
                 onClick={() => {}}
               >
                 <CSVLink data={csvData} filename={'coupons.csv'}>
@@ -119,7 +119,7 @@ const Coupon = () => {
               </button>
             </div>
             <table className='w-full text-sm text-left rtl:text-right '>
-              <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-blue7 dark:text-gray-400'>
+              <thead className='text-xs text-white uppercase bg-blue-600 dark:bg-blue7 dark:text-gray-400'>
                 <tr>
                   <th scope='col' className='px-6 py-3'>
                     Code
