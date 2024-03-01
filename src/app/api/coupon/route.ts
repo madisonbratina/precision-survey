@@ -76,8 +76,9 @@ export async function PATCH(req: NextRequest) {
     const { couponId } = data;
     let coupon;
     let existingCoupon = await Coupon.findOne({ userId: id.value });
+    let couponCheck = await User.findOne({ couponId: couponId });
 
-    if (existingCoupon) {
+    if (existingCoupon || couponCheck) {
       coupon = existingCoupon;
     } else {
       coupon = await Coupon.findOneAndUpdate(
