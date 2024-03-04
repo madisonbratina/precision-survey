@@ -62,7 +62,7 @@ export const comparePassword = async (passRecieved: string, passInDB: string) =>
 
 export const attachAdminSession = (session: string) => {
   cookies().set('admin-session', session, {
-    expires: Date.now() + +(process.env.NEXT_PUBLIC_ADMIN_SESSION_EXPIRATION_TIME || 30000)
+    expires: Date.now() + +(process.env.NEXT_PUBLIC_ADMIN_SESSION_EXPIRATION_TIME || 300) * 1000
   });
 };
 
