@@ -74,9 +74,13 @@ const Coupon = () => {
   const csvData = list?.map((elem: any) => ({
     Code: elem.code,
     Provider: elem.provider,
-    Status: elem?.redeemDate ? 'Redeemed' : 'Not Redeemed',
+    Status: elem?.redeemDate || elem?.user?.email ? 'Redeemed' : 'Not Redeemed',
     'Redeemed by': elem?.user?.email,
-    'Redeemed on': elem?.redeemDate ? moment(elem.redeemDate).format('YYYY-MM-DD') : ''
+    'Redeemed on': elem?.redeemDate
+      ? moment(elem?.redeemDate).format('YYYY-MM-DD')
+      : elem?.user?.email
+        ? moment(elem?.updatedAt).format('YYYY-MM-DD')
+        : ''
   }));
   return (
     <>
@@ -153,13 +157,17 @@ const Coupon = () => {
                       </th>
                       <th
                         scope='row'
-                        className={`px-6 py-4 font-medium text-${elem?.redeemDate ? 'success' : 'red-500'}`}
+                        className={`px-6 py-4 font-medium text-${elem?.redeemDate || elem?.user?.email ? 'success' : 'red-500'}`}
                       >
-                        {elem?.redeemDate ? 'Redeemed' : 'Not Redeemed'}
+                        {elem?.redeemDate || elem?.user?.email ? 'Redeemed' : 'Not Redeemed'}
                       </th>
                       <td className='px-6 py-4'>{elem?.user?.email}</td>
                       <td className='px-6 py-4'>
-                        {elem?.redeemDate ? moment(elem.redeemDate).format('YYYY-MM-DD') : ''}
+                        {elem?.redeemDate
+                          ? moment(elem?.redeemDate).format('YYYY-MM-DD')
+                          : elem?.user?.email
+                            ? moment(elem?.updatedAt).format('YYYY-MM-DD')
+                            : ''}
                       </td>
                     </tr>
                   );
