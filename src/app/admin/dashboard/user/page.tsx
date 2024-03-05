@@ -34,7 +34,12 @@ const User = () => {
 
     return {
       Email: elem.email,
-      Status: elem?.coupon ? 'Completed' : 'Not Completed',
+      Status:
+        elem?.surveyStep === 6
+          ? elem?.coupon
+            ? 'Coupon Rewarded'
+            : 'Survey Completed'
+          : 'Survey Partially Completed',
       'Completed On': elem?.surveyCompleteDate
         ? moment(elem.surveyCompleteDate).format('YYYY-MM-DD')
         : '',
@@ -99,11 +104,16 @@ const User = () => {
                       <th scope='row' className='px-6 py-4 font-medium '>
                         {elem.email}
                       </th>
+
                       <th
                         scope='row'
-                        className={`px-6 py-4 font-medium text-${elem?.coupon ? 'success' : 'red-500'}`}
+                        className={`px-6 py-4 font-medium text-${elem?.surveyStep === 6 ? 'success' : 'red-500'}`}
                       >
-                        {elem?.coupon ? 'Completed' : 'Not Completed'}
+                        {elem?.surveyStep === 6
+                          ? elem?.coupon
+                            ? 'Coupon Rewarded'
+                            : 'Survey Completed'
+                          : 'Survey Partially Completed'}
                       </th>
                       <td className='px-6 py-4'>
                         {elem?.surveyCompleteDate
