@@ -4,9 +4,10 @@ import Coupon from '~/models/coupon';
 
 function getUniqueEntriesWithProperties(data: any) {
   const uniqueProviders: any = {};
-  const result: any[] = [];
+  const result = [];
 
-  data.forEach((entry: any) => {
+  for (let i = 0; i < data.length; i++) {
+    const entry = data[i];
     if (entry.provider === 'tim hortons' || entry.provider === 'amazon') {
       if (!(entry.provider in uniqueProviders)) {
         uniqueProviders[entry.provider] = true;
@@ -14,7 +15,7 @@ function getUniqueEntriesWithProperties(data: any) {
         result.push({ _id, code, provider, image: image || null });
       }
     }
-  });
+  }
 
   return result;
 }
@@ -22,7 +23,6 @@ function getUniqueEntriesWithProperties(data: any) {
 export async function GET() {
   try {
     await dbConnect();
-
     const response = await Coupon.find({ userId: { $exists: false } });
     const result = getUniqueEntriesWithProperties(response);
     return NextResponse.json({ data: result }, { status: 200 });
