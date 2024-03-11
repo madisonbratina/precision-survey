@@ -10,7 +10,7 @@
     "eslint-config-prettier"
   ],
   "rules": {
-    "no-console": "off",
+    "no-console": "error",
     "prettier/prettier": ["error",  {"endOfLine": "auto"}],
     "react/prop-types": 0,
     "linebreak-style": 0,
