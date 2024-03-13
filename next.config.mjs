@@ -13,11 +13,11 @@ export default {
         {
           source: '/((?!maintenance).*)',
           destination: '/maintenance',
-          permanent: false,
-        },
+          permanent: false
+        }
       ];
     } else {
       return nextConfig;
     }
-  },
+  }
 };
