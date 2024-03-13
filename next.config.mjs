@@ -1,23 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-// export default nextConfig;
-
 // next.config.mjs
-const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'ON';
+import { NextConfig } from 'next';
 
-export default {
+/** @type {NextConfig} */
+const nextConfig = {
   async redirects() {
-    if (isMaintenanceMode) {
-      return [
-        {
-          source: '/((?!maintenance).*)',
-          destination: '/maintenance',
-          permanent: false
-        }
-      ];
-    } else {
-      return nextConfig;
-    }
+    return process.env.MAINTENANCE_MODE === 'ON'
+      ? [
+          {
+            source: '/((?!maintenance).*)',
+            destination: '/maintenance',
+            permanent: false
+          }
+        ]
+      : [];
   }
 };
+
+export default nextConfig;
