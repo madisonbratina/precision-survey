@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const domain = emailParts[emailParts.length - 1];
     const isDomainExists = await EmailDomain.findOne({ domain });
     if (isDomainExists) {
-      return NextResponse.json({ e: 'Email is not allowed' }, { status: 400 });
+      return NextResponse.json({ message: 'Unable to register with email' }, { status: 500 });
     }
     let userData;
 
