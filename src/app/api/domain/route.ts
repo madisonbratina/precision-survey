@@ -2,6 +2,7 @@ import dbConnect from '~/db/db';
 export const dynamic = 'force-dynamic';
 import { NextResponse, NextRequest } from 'next/server';
 import EmailDomain from '~/models/emaildomain';
+export const revalidate = 0;
 
 function convertStringToArray(string: string): string[] {
   const substrings = string.split(',');
