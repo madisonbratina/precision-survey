@@ -1,16 +1,16 @@
-// next.config.mjs
-const nextConfig = {
-  async redirects() {
-    return process.env.MAINTENANCE_MODE === 'ON'
-      ? [
-          {
-            source: '/((?!maintenance).*)',
-            destination: '/maintenance',
-            permanent: false
-          }
-        ]
-      : [];
-  }
-};
+// // next.config.mjs
+// const nextConfig = {
+//   async redirects() {
+//     return process.env.MAINTENANCE_MODE === 'ON'
+//       ? [
+//           {
+//             source: '/((?!maintenance).*)',
+//             destination: '/maintenance',
+//             permanent: false
+//           }
+//         ]
+//       : [];
+//   }
+// };
 
-export default nextConfig;
+// export default nextConfig;

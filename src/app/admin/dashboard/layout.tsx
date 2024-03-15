@@ -120,6 +120,14 @@ const DashboardLayout = ({
                   Coupon
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/admin/dashboard/domain')}
+                  className='block py-2 px-3 text-white'
+                >
+                  Domain
+                </button>
+              </li>
             </ul>
           </div>
         </div>

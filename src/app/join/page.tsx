@@ -10,12 +10,33 @@ import React, { useState } from 'react';
 
 const Join = ({ login, isLoading }: any) => {
   const [email, setEmail] = useState('');
+  const [inputres, setInputRes] = useState();
   const router = useRouter();
   const { TncComponent, isAccepted } = useTnc();
-
   const handleSubmit = () => {
     login(email);
+    postDataAsync(email);
   };
+
+  async function postDataAsync(email: any) {
+    const postData = { email };
+
+    try {
+      const response = await fetch('api/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      });
+      const data = await response.json();
+      setInputRes(data.message);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   return (
     <div className='bg-blue2 p-8' style={{ minHeight: '100svh' }}>
       <VerticalApart height='80svh'>
@@ -36,12 +57,13 @@ const Join = ({ login, isLoading }: any) => {
               EMAIL ADDRESS <span className='text-red-500'>*</span>
             </label>
             <input
-              className='w-full p-3 border border-blue4 rounded-lg outline-none'
+              className={`w-full p-3 border rounded-lg outline-none ${inputres ? 'border-red-500' : 'border-blue4'}`}
               type='email'
               placeholder='Email Address'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {inputres && <span className='text-red-500 ml-2'>{inputres}</span>}
           </div>
           {TncComponent}
         </div>

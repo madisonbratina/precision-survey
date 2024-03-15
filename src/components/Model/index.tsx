@@ -17,7 +17,7 @@ const Modal = ({
     <>
       {isOpen && (
         <div
-          className='fixed top-0 left-0 w-full h-full overflow-auto bg-black bg-opacity-70'
+          className='fixed top-0 left-0 w-full h-full overflow-auto bg-gray-300 bg-opacity-50'
           onClick={onClose}
         >
           <div
