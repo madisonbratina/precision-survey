@@ -1,5 +1,5 @@
 // next.config.mjs
-//maintenance
+//maintenance on
 const nextConfig = {
   async redirects() {
     return process.env.MAINTENANCE_MODE === 'ON'
