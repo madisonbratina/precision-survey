@@ -5,11 +5,20 @@ import { NextResponse, NextRequest } from 'next/server';
 import { decryptText, encryptText, getTokenValue } from '~/utils/helper';
 import { userEmailVerificationMail } from '~/utils/emailHandler/emailHandler';
 import Coupon from '~/models/coupon';
+import EmailDomain from '~/models/emaildomain';
 
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
     const data = await req.json();
+
+    const email = data.email;
+    const emailParts = email.split('@');
+    const domain = emailParts[emailParts.length - 1];
+    const isDomainExists = await EmailDomain.findOne({ domain });
+    if (isDomainExists) {
+      return NextResponse.json({ e: 'Email is not allowed' }, { status: 400 });
+    }
     let userData;
 
     const isUserExists = await User.findOne(data);
